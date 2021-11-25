@@ -20,6 +20,7 @@ jobs:
       run: |
         npm install
         gcov --version
+        apt install lcov
         lcov --version
         make lcov
 
