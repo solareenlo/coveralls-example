@@ -1,6 +1,6 @@
 NAME     := a.out
 
-CC       := clang++
+CC       := g++
 CFLAGS   := -Wall -Wextra -Werror
 CFLAGS   += -std=c++98 --pedantic
 CFLAGS   += -fPIC -fprofile-arcs -ftest-coverage
