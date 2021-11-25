@@ -36,5 +36,9 @@ report : lcov
 clean:
 	$(RM) $(NAME) *.o *.so *.gcno *.gcda *.gcov *.info $(COVERAGE)
 
+.PHONY: coverage-test
+test: gcov
+	./($NAME)
+
 .PHONY: re
 re: clean all
