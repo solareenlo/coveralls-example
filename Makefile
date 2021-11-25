@@ -20,11 +20,11 @@ $(OBJS) : $(SRCS)
 
 .PHONY: gcov
 gcov: all
+	./$(NAME)
 	gcov $(SRCS)
 
 .PHONY: lcov
 lcov: gcov
-	./$(NAME)
 	mkdir -p ./$(COVERAGE)
 	lcov --capture --directory . --output-file ./$(COVERAGE)/lcov.info
 
