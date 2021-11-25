@@ -19,16 +19,18 @@ $(OBJS) : $(SRCS)
 	$(CC) $(CFLAGS) -o $@ -c $^
 
 .PHONY: gcov
-gcov: $(SRCS)
-	gcov $^
+gcov: all
+	gcov $(SRCS)
 
 .PHONY: lcov
 lcov: gcov
-	lcov --capture --directory . --output-file lcov.info
+	./$(NAME)
+	mkdir -p ./$(COVERAGE)
+	lcov --capture --directory . --output-file ./$(COVERAGE)/lcov.info
 
 .PHONY: report
 report : lcov
-	genhtml lcov.info --output-directory ./$(COVERAGE)
+	genhtml ./$(COVERAGE)/lcov.info --output-directory ./$(COVERAGE)
 
 .PHONY: clean
 clean:
